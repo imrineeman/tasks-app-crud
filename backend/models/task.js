@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const taskSchema = new mongoose.Schema({
   name: String,
   description: String,
-  labels: String,
+  labels: Array,
 });
 
 taskSchema.set('toJSON', {
   transform: (document, returnedObject) => {
+    returnedObject.taskId = returnedObject._id;
+    delete returnedObject._id;
     delete returnedObject.__v;
   },
 });
