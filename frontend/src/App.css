@@ -1,5 +1,5 @@
 .App {
-  background-color: #282c34;
+  background-color: #3e4450;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,16 +13,18 @@
   background-color: blanchedalmond;
   margin: 10%;
   min-width: 500px;
-  display: flex;
-  flex-direction: column;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 .TaskCard {
   background-color: aqua;
-  overflow: hidden;
   margin:1vh;
+  display: block;
+  transition: height 1s;
 }
 
 .Filter {
