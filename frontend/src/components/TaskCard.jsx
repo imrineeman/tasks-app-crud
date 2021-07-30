@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const TaskCard = () => (
-  <div className="TaskCard">
-    TaskCard!!!
-  </div>
-);
+const TaskCard = ({ name, description }) => {
+  const [showDesc, setShowDesc] = useState(false);
+
+  const toggleCard = () => {
+    showDesc ? setShowDesc(false) : setShowDesc(true);
+  };
+  return (
+    <div
+      className="TaskCard"
+      onClick={toggleCard}
+    >
+      <header>
+        {name}
+      </header>
+      {showDesc
+        ? (
+          <div>
+            {description}
+          </div>
+        ) : null}
+    </div>
+  );
+};
 
 export default TaskCard;

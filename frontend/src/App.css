@@ -18,8 +18,11 @@
   align-items: center;
   justify-content: center;
 }
+
 .TaskCard {
   background-color: aqua;
+  overflow: hidden;
+  margin:1vh;
 }
 
 .Filter {
