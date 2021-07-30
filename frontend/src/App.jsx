@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
+import ContainerCard from './components/ContainerCard';
 
 const App = () => (
   <div className="App">
-    <header className="App-header">
-      Hello!
-    </header>
+    <ContainerCard />
   </div>
 );
 
