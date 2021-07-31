@@ -6,7 +6,12 @@ const BASE_URL = 'http://localhost:3005/api/tasks';
 const getAll = () => axios.get(BASE_URL);
 
 // Create
+const create = (taskData) => axios.post(BASE_URL, taskData);
+
 // Update
 // Delete
 
-export default { getAll };
+export default {
+  getAll,
+  create,
+};

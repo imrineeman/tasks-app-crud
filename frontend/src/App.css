@@ -16,12 +16,12 @@
   align-items: center;
   justify-content: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
+  padding: 1vh;
 }
 
 .TaskCard {
   background-color: #DA7F8F;
-  margin:1vh;
+  margin-bottom:1vh;
   display: block;
   transition: height 1s;
   border-radius: 10px;

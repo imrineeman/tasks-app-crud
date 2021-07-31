@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 const TaskCard = ({ name, description }) => {
-  const [showDesc, setShowDesc] = useState(false);
+  const [showMore, setShowMore] = useState(false);
+  const [configMode, setConfigMode] = useState(false);
 
   const toggleCard = () => {
-    showDesc ? setShowDesc(false) : setShowDesc(true);
+    showMore ? setShowMore(false) : setShowMore(true);
   };
   return (
     <div
@@ -14,7 +15,7 @@ const TaskCard = ({ name, description }) => {
       <header>
         {name}
       </header>
-      {showDesc
+      {showMore
         ? (
           <div className="taskDescription">
             {description}

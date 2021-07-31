@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // Components
 import TaskCard from './TaskCard';
+import TaskForm from './TaskForm';
 import Filter from './Filter';
 // Mock data
 import mockData from '../utils/mockdb';
@@ -10,8 +11,21 @@ import taskService from '../services/taskService';
 const ContainerCard = () => {
   const [data, setData] = useState(mockData);
   const [search, setSearch] = useState('');
+  const [formVisible, setFormVisible] = useState(false);
+
   const tasks = search
-    ? data.filter((task) => (task.name.toLowerCase().includes(search.toLowerCase()))) : data;
+    ? data.filter(
+      (task) => (task.name.toLowerCase().includes(search.toLowerCase())),
+    ) : data;
+
+  const handleNewTaskClick = () => {
+    formVisible ? setFormVisible(false) : setFormVisible(true);
+  };
+
+  const submitTask = async (taskData) => {
+    const res = await taskService.create(taskData);
+    setData(data.concat(res.data));
+  };
 
   useEffect(() => {
     taskService.getAll()
@@ -23,6 +37,19 @@ const ContainerCard = () => {
       <input
         onChange={(({ target }) => setSearch(target.value))}
       />
+      <button
+        type="button"
+        onClick={handleNewTaskClick}
+      >
+        New Task
+      </button>
+      {formVisible
+        ? (
+          <TaskForm
+            handleSubmit={submitTask}
+          />
+        )
+        : null}
       <div>
         {tasks.map((task) => (
           <TaskCard
