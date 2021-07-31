@@ -1,15 +1,15 @@
 .App {
-  background-color: #3e4450;
+  background-color: #E1E5EA;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #FAF3F3;
 }
 
 .ContainerCard{
-  background-color: blanchedalmond;
+  background-color: #A7BBC7;
   margin-top: 30vh;
   min-width: 500px;
   border-radius: 10px;
@@ -20,10 +20,17 @@
 }
 
 .TaskCard {
-  background-color: aqua;
+  background-color: #DA7F8F;
   margin:1vh;
   display: block;
   transition: height 1s;
+  border-radius: 10px;
+  padding: 1vh;
+}
+
+.TaskCard .taskDescription{
+  font-size: 2vh;
+  color: #FAF3F3;
 }
 
 .Filter {

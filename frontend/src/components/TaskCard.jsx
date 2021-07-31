@@ -16,7 +16,7 @@ const TaskCard = ({ name, description }) => {
       </header>
       {showDesc
         ? (
-          <div>
+          <div className="taskDescription">
             {description}
           </div>
         ) : null}
