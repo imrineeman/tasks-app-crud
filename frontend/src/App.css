@@ -4,14 +4,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .ContainerCard{
   background-color: blanchedalmond;
-  margin: 10%;
+  margin-top: 30vh;
   min-width: 500px;
   border-radius: 10px;
   align-items: center;
