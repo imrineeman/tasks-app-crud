@@ -14,7 +14,8 @@ const ContainerCard = () => {
     ? data.filter((task) => (task.name.toLowerCase().includes(search.toLowerCase()))) : data;
 
   useEffect(() => {
-    taskService.getAll().then((res) => console.log(res.data));
+    taskService.getAll()
+      .then((res) => setData(res.data));
   }, []);
 
   return (

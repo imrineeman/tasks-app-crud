@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const config = require('./utils/config');
 
 // Routers
 const tasksRouter = require('./controllers/tasksRouter');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 mongoose.connect(config.MONGODB_URI, {
