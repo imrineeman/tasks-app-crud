@@ -1,3 +1,4 @@
+// Integration test of API and DB
 const mongoose = require('mongoose');
 const supertest = require('supertest');
 const app = require('../app');
@@ -13,7 +14,6 @@ beforeEach(async () => {
   Promise.all(promiseArray);
 });
 
-// Test Get all
 test('Get all tasks', async () => {
   const res = await api
     .get('/api/tasks');
@@ -21,7 +21,7 @@ test('Get all tasks', async () => {
   expect(res.body).toHaveLength(4);
 });
 
-test('Post task & Get by Id', async () => {
+test('Post task & Get it by id', async () => {
   const mockTask = {
     labels: [
       'mock',
@@ -31,7 +31,8 @@ test('Post task & Get by Id', async () => {
     description: 'Test me!',
   };
 
-  const res = await api.post('/api/tasks', mockTask);
+  const res = await api.post('/api/tasks')
+    .send(mockTask);
   expect(res.status).toBe(201);
 
   const getRes = await api.get(`/api/tasks/${res.body.taskId}`);
@@ -39,7 +40,7 @@ test('Post task & Get by Id', async () => {
   expect(getRes.body).toEqual(res.body);
 });
 
-test('Update task & delete', async () => {
+test('Update task', async () => {
   const getAll = await api.get('/api/tasks');
   expect(getAll.status).toBe(200);
   expect(getAll.body).toHaveLength(4);
@@ -54,8 +55,8 @@ test('Update task & delete', async () => {
   };
 
   const updatedTask = await api
-    .put(`/api/tasks/${getAll.body[0].taskId}`, mockTask);
-  console.log(updatedTask.body);
+    .put(`/api/tasks/${getAll.body[0].taskId}`)
+    .send(mockTask);
   expect(updatedTask.status).toBe(200);
   expect(updatedTask.body.name).toEqual(mockTask.name);
 });

@@ -1,11 +1,12 @@
 const Task = require('../models/task');
 
-// Read
+// Read All
 const getTasks = async () => {
   const tasks = await Task.find({});
   return tasks;
 };
 
+// Read One
 const getTaskById = async (id) => {
   const task = await Task.findOne({ _id: id });
   return task;

@@ -11,7 +11,7 @@ tasksRouter.get('/:id', async (req, res) => {
     const task = await tasksService.getTaskById(req.params.id);
     res.status(200).json(task);
   } catch (err) {
-    res.status(400).json({ error: 'Invalid task Id' });
+    res.status(404).json({ error: 'Invalid task Id' });
   }
 });
 
