@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-const TaskCard = ({ name, description }) => {
+const TaskCard = ({
+  name, description, labels, taskId, handleDelete,
+}) => {
   const [showMore, setShowMore] = useState(false);
   const [configMode, setConfigMode] = useState(false);
 
@@ -15,6 +17,12 @@ const TaskCard = ({ name, description }) => {
       <header>
         {name}
       </header>
+      <button
+        type="button"
+        onClick={() => handleDelete(taskId)}
+      >
+        Delete
+      </button>
       {showMore
         ? (
           <div className="taskDescription">

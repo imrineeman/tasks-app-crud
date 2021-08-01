@@ -27,6 +27,12 @@ const ContainerCard = () => {
     setData(data.concat(res.data));
   };
 
+  const deleteTask = async (taskId) => {
+    const res = await taskService.remove(taskId);
+    const newData = data.filter((task) => task.taskId !== taskId);
+    setData(newData);
+  };
+
   useEffect(() => {
     taskService.getAll()
       .then((res) => setData(res.data));
@@ -55,6 +61,8 @@ const ContainerCard = () => {
           <TaskCard
             name={task.name}
             description={task.description}
+            taskId={task.taskId}
+            handleDelete={deleteTask}
           />
         ))}
       </div>

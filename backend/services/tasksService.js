@@ -1,5 +1,6 @@
 const Task = require('../models/task');
 
+// Read
 const getTasks = async () => {
   const tasks = await Task.find({});
   return tasks;
@@ -10,6 +11,7 @@ const getTaskById = async (id) => {
   return task;
 };
 
+// Create
 const saveTask = async (task) => {
   const taskData = {
     name: task.name,
@@ -21,6 +23,7 @@ const saveTask = async (task) => {
   return res;
 };
 
+// Update
 const updateTask = async (task, id) => {
   const taskData = {
     name: task.name,
@@ -33,9 +36,16 @@ const updateTask = async (task, id) => {
   return updatedTask;
 };
 
+// Delete
+const deleteTask = async (id) => {
+  const res = await Task.findOneAndDelete({ _id: id });
+  return res;
+};
+
 module.exports = {
   getTasks,
   saveTask,
   getTaskById,
   updateTask,
+  deleteTask,
 };

@@ -33,4 +33,13 @@ tasksRouter.put('/:id', async (req, res) => {
   }
 });
 
+tasksRouter.delete('/:id', async (req, res) => {
+  try {
+    const result = await tasksService.deleteTask(req.params.id);
+    res.status(204).json(result);
+  } catch (err) {
+    res.status(404).json({ error: err.name });
+  }
+});
+
 module.exports = tasksRouter;
