@@ -35,7 +35,7 @@ const TaskForm = ({
             name: taskName,
             description: taskDescription,
             labels: '',
-          }, taskId || null)}
+          }, taskId)}
         >
           Submit
         </button>

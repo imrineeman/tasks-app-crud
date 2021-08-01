@@ -18,8 +18,9 @@ const ContainerCard = () => {
       (task) => (task.name.toLowerCase().includes(search.toLowerCase())),
     ) : data;
 
-  const handleNewTaskClick = () => {
-    formVisible ? setFormVisible(false) : setFormVisible(true);
+  const showTaskForm = () => {
+    formVisible
+      ? setFormVisible(false) : setFormVisible(true);
   };
 
   const handleSerachbarChange = ({ target }) => {
@@ -29,12 +30,15 @@ const ContainerCard = () => {
   const submitTask = async (taskData) => {
     const res = await taskService.create(taskData);
     setData(data.concat(res.data));
+    showTaskForm();
   };
 
-  const updateTask = async (taskData) => {
-    const res = await taskService.update(taskData);
+  const updateTask = async (taskData, id) => {
+    const res = await taskService.update(taskData, id);
     setData(data.map((task) => {
-      res.data.taskId === task.taskId ? res.data.taskId : task;
+      if (task.taskId === res.data.taskId) {
+        return res.data;
+      } return task;
     }));
   };
 
@@ -53,7 +57,8 @@ const ContainerCard = () => {
     <div className="ContainerCard">
       <Filter
         handleChange={handleSerachbarChange}
-        handleClick={handleNewTaskClick}
+        handleClick={showTaskForm}
+        toggleVisibility={showTaskForm}
       />
       {formVisible
         ? (

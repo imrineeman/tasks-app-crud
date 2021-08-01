@@ -9,7 +9,7 @@ const getAll = () => axios.get(BASE_URL);
 const create = (taskData) => axios.post(BASE_URL, taskData);
 
 // Update
-const update = (taskData) => axios.put(`${BASE_URL}/${taskData.taskId}`, taskData);
+const update = (taskData, taskId) => axios.put(`${BASE_URL}/${taskId}`, taskData);
 
 // Delete
 const remove = (taskId) => axios.delete(`${BASE_URL}/${taskId}`);
