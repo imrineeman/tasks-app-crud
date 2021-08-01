@@ -1,7 +1,10 @@
 require('dotenv').config();
 
-const PORT = 3005;
-const MONGODB_URI = 'mongodb://127.0.0.1:27017/tasks';
+const { PORT } = process.env;
+const MONGODB_URI = process.env.NODE_ENV === 'test'
+  ? process.env.TEST_MONGODB_URI
+  : process.env.MONGODB_URI;
+
 const BASE_URL = `http://localhost:${PORT}`;
 
 module.exports = {
