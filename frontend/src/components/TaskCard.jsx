@@ -32,7 +32,7 @@ const TaskCard = ({
             className="TaskCard"
             onClick={toggleShowMore}
           >
-            <header>
+            <header className="TaskHeader">
               {name}
             </header>
             <button

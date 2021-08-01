@@ -9,7 +9,7 @@ import mockData from '../utils/mockdb';
 import taskService from '../services/taskService';
 
 const ContainerCard = () => {
-  const [data, setData] = useState(mockData);
+  const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
   const [formVisible, setFormVisible] = useState(false);
 

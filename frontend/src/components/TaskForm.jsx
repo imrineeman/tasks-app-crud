@@ -23,6 +23,7 @@ const TaskForm = ({
           value={taskName}
           onChange={handleNameChange}
           onClick={omitClick}
+          style={{ display: 'block' }}
         />
         <input
           value={taskDescription}

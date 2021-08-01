@@ -10,9 +10,10 @@
 
 .ContainerCard{
   background-color: #A7BBC7;
-  margin-top: 20vh;
+  margin-top: 10vh;
   margin-bottom: 5vh;
   min-width: 500px;
+  width:30vw;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -29,14 +30,21 @@
   padding: 1vh;
 }
 
+.TaskCard .TaskHeader {
+  font-size: 3vh;
+  word-wrap: break-word;
+}
+
 .TaskCard .taskDescription{
   font-size: 2vh;
+  word-wrap: break-word;
   color: #FAF3F3;
 }
 
 .Filter {
   background-color: aquamarine;
-  margin:1vh;
   padding:1vh;
+  margin-bottom:1vh;
+  border-radius: 10px;
 }
 
