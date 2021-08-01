@@ -1,9 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import TaskCard from '../components/TaskCard';
 
-test('renders content', () => {
+test('TaskCard renders data, toggles test', () => {
   const task = {
     labels: [
       'today',
@@ -19,6 +19,19 @@ test('renders content', () => {
       description={task.description}
     />,
   );
-  const element = component.getByText(task.name);
-  expect(element).toBeDefined();
+
+  // Test for basic rendering
+  const header = component.getByText(task.name);
+  expect(header).toBeDefined();
+
+  // Ensures description is hidden
+  const description = component.queryByText(task.description);
+  expect(description).toBeNull();
+
+  // Simulate card click
+  const div = component.container.querySelector('.TaskCard');
+  fireEvent.click(div);
+
+  // Check again for description
+  expect(description).toBeDefined();
 });
