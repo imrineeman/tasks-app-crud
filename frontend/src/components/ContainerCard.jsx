@@ -31,6 +31,13 @@ const ContainerCard = () => {
     setData(data.concat(res.data));
   };
 
+  const updateTask = async (taskData) => {
+    const res = await taskService.update(taskData);
+    setData(data.map((task) => {
+      res.data.taskId === task.taskId ? res.data.taskId : task;
+    }));
+  };
+
   const deleteTask = async (taskId) => {
     const res = await taskService.remove(taskId);
     const newData = data.filter((task) => task.taskId !== taskId);
@@ -46,13 +53,8 @@ const ContainerCard = () => {
     <div className="ContainerCard">
       <Filter
         handleChange={handleSerachbarChange}
+        handleClick={handleNewTaskClick}
       />
-      <button
-        type="button"
-        onClick={handleNewTaskClick}
-      >
-        New Task
-      </button>
       {formVisible
         ? (
           <TaskForm
@@ -67,6 +69,7 @@ const ContainerCard = () => {
             description={task.description}
             taskId={task.taskId}
             handleDelete={deleteTask}
+            handleUpdate={updateTask}
           />
         ))}
       </div>
