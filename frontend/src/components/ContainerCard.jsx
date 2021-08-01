@@ -22,6 +22,10 @@ const ContainerCard = () => {
     formVisible ? setFormVisible(false) : setFormVisible(true);
   };
 
+  const handleSerachbarChange = ({ target }) => {
+    setSearch(target.value);
+  };
+
   const submitTask = async (taskData) => {
     const res = await taskService.create(taskData);
     setData(data.concat(res.data));
@@ -40,8 +44,8 @@ const ContainerCard = () => {
 
   return (
     <div className="ContainerCard">
-      <input
-        onChange={(({ target }) => setSearch(target.value))}
+      <Filter
+        handleChange={handleSerachbarChange}
       />
       <button
         type="button"

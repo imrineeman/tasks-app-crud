@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Filter = () => (
+const Filter = ({ handleChange }) => (
   <div className="Filter">
-    <input />
+    <input onChange={handleChange} />
   </div>
 );
 

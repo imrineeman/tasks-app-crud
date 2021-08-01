@@ -11,6 +11,7 @@
 .ContainerCard{
   background-color: #A7BBC7;
   margin-top: 30vh;
+  margin-bottom: 5vh;
   min-width: 500px;
   border-radius: 10px;
   align-items: center;
