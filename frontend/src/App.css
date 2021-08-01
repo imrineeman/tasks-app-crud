@@ -23,16 +23,19 @@
 
 .TaskCard {
   background-color: #DA7F8F;
-  margin-bottom:1vh;
+  margin-top:1vh;
   display: block;
   transition: height 1s;
   border-radius: 10px;
   padding: 1vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 1px 6px;
+
 }
 
 .TaskCard .TaskHeader {
   font-size: 3vh;
   word-wrap: break-word;
+  
 }
 
 .TaskCard .taskDescription{
