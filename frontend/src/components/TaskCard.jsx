@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button } from 'antd';
+import { DeleteTwoTone, EditTwoTone } from '@ant-design/icons';
 import TaskForm from './TaskForm';
 
 const TaskCard = ({
@@ -35,18 +37,18 @@ const TaskCard = ({
             <header className="TaskHeader">
               {name}
             </header>
-            <button
+            <Button
               id="editButton"
               onClick={toggleEditMode}
-            >
-              Edit
-            </button>
-            <button
-              type="button"
+              icon={<EditTwoTone twoToneColor="#800000" />}
+            />
+            <Button
+              type="danger"
               onClick={() => handleDelete(taskId)}
-            >
-              Delete
-            </button>
+              icon={(
+                <DeleteTwoTone twoToneColor="#800000" />
+)}
+            />
             {showMore
               ? (
                 <div className="taskDescription">
