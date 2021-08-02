@@ -20,18 +20,21 @@ const TaskForm = ({
     >
       <form>
         <input
+          id="taskName"
           value={taskName}
           onChange={handleNameChange}
           onClick={omitClick}
           style={{ display: 'block' }}
         />
         <input
+          id="taskDescription"
           value={taskDescription}
           onChange={handleDescriptionChange}
           onClick={omitClick}
         />
         <button
           type="button"
+          id="submitButton"
           onClick={() => handleSubmit({
             name: taskName,
             description: taskDescription,

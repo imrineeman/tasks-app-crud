@@ -36,6 +36,7 @@ const TaskCard = ({
               {name}
             </header>
             <button
+              id="editButton"
               onClick={toggleEditMode}
             >
               Edit
