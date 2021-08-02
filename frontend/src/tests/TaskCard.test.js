@@ -3,7 +3,9 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent } from '@testing-library/react';
 import TaskCard from '../components/TaskCard';
 
-test('TaskCard renders data, toggles test', () => {
+describe('TaskCard tests', () => {
+  let component;
+
   const task = {
     labels: [
       'today',
@@ -13,25 +15,33 @@ test('TaskCard renders data, toggles test', () => {
     description: 'Do anything!',
   };
 
-  const component = render(
-    <TaskCard
-      name={task.name}
-      description={task.description}
-    />,
-  );
+  beforeEach(() => {
+    component = render(
+      <TaskCard
+        name={task.name}
+        description={task.description}
+      />,
+    );
+  });
 
   // Test for basic rendering
-  const header = component.getByText(task.name);
-  expect(header).toBeDefined();
+  test('Render header', () => {
+    const header = component.getByText(task.name);
+    expect(header).toBeDefined();
+  });
 
   // Ensures description is hidden
-  const description = component.queryByText(task.description);
-  expect(description).toBeNull();
+  test('Description is hidden', () => {
+    const description = component.queryByText(task.description);
+    expect(description).toBeNull();
+  });
 
   // Simulate card click
-  const div = component.container.querySelector('.TaskCard');
-  fireEvent.click(div);
-
-  // Check again for description
-  expect(description).toBeDefined();
+  test('Simulate card click & check for description', () => {
+    const div = component.container.querySelector('.TaskCard');
+    const description = component.queryByText(task.description);
+    fireEvent.click(div);
+    // Check again for description
+    expect(description).toBeDefined();
+  });
 });
