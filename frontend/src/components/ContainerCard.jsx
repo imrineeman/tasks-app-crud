@@ -58,7 +58,6 @@ const ContainerCard = () => {
       <Filter
         handleChange={handleSerachbarChange}
         handleClick={showTaskForm}
-        toggleVisibility={showTaskForm}
       />
       {formVisible
         ? (

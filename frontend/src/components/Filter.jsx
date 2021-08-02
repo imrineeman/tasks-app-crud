@@ -2,7 +2,7 @@ import React from 'react';
 import { Input, Button } from 'antd';
 import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
 
-const Filter = ({ handleChange, handleClick, toggleVisibility }) => (
+const Filter = ({ handleChange, handleClick }) => (
   <div className="Filter">
     <div className="searchBar">
       <Input
