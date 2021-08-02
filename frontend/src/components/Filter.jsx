@@ -9,7 +9,6 @@ const Filter = ({ handleChange, handleClick, toggleVisibility }) => (
         width=""
         placeholder="Search Tasks"
         onChange={handleChange}
-        bordered="true"
         prefix={<SearchOutlined />}
       />
     </div>
