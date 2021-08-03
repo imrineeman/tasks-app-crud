@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3005/api/tasks';
+const BASE_URL = 'http://127.0.0.1:3005/api/tasks';
 
 // Read
 const getAll = () => axios.get(BASE_URL);
